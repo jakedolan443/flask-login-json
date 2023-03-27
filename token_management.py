@@ -29,6 +29,12 @@ class TokenManager:
     def __init__(self):
         self.__tokens = []
     
+    def clearTokens(self):
+        new_tokens = []
+        for token in self.__tokens:
+            if not token.hasExpired:
+                new_tokens.append(token)
+    
     def createNewToken(self):
         if len(self.__tokens) < 1000:
             new_token = Token()

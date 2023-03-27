@@ -1,9 +1,15 @@
 from flask import Flask, g, request, redirect, url_for, render_template, jsonify
 from auth import auth_bp, validate_request
+from flask_crontab import Crontab
 
 
 app = Flask(__name__, static_url_path='', static_folder='public/static', template_folder='public/serve')
 app.register_blueprint(auth_bp)
+crontab = Crontab(app)
+
+@crontab.job(minute="0", hour="0")
+def clearTokens():
+    auth.tokenManager.clearTokens()
 
 @app.errorhandler(403)
 def ROUTE_PageNotFound(e):
