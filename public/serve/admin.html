@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage</title>
+    <style>
+        body {
+            margin: 16px;
+            padding: 0;
+        }
+        
+        h1 {
+            margin: 0;
+        }
+    </style>
+    <script>
+        function logOut() {
+            document.cookie = "token=;";
+            window.location.replace("/")
+        }
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Default Page</h1>
+    <p>This is the default site of the webpage.</p>
+    <p>You are logged in as Admin.</p>
+    <a href="#" onclick="logOut()">Log Out</a>
+</body>
+</html>
